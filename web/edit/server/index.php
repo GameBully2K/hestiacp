@@ -304,7 +304,7 @@ if (!empty($_POST["save"])) {
 			$output,
 			$return_var,
 		);
-		check_return_code($return_var, $output);
+		//check_return_code($return_var, $output);
 		unset($output);
 		$v_hostname = $_POST["v_hostname"];
 	}
@@ -328,7 +328,7 @@ if (!empty($_POST["save"])) {
 								$output,
 								$return_var,
 							);
-							check_return_code($return_var, $output);
+							//check_return_code($return_var, $output);
 							unset($output);
 							if (empty($_SESSION["error_msg"])) {
 								$php_version->installed = true;
@@ -343,7 +343,7 @@ if (!empty($_POST["save"])) {
 								$output,
 								$return_var,
 							);
-							check_return_code($return_var, $output);
+							//check_return_code($return_var, $output);
 							unset($output);
 							if (empty($_SESSION["error_msg"])) {
 								$php_version->installed = false;
@@ -365,7 +365,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				//force reload
 				$require_refresh = true;
@@ -382,7 +382,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				if (in_array($_POST["v_timezone"], $v_timezones)) {
 					$v_timezone = $_POST["v_timezone"];
 				}
@@ -412,7 +412,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$_SESSION["LANGUAGE"] = $_POST["v_language"];
@@ -428,7 +428,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 		}
 	}
@@ -453,7 +453,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_debug_mode_adv = "yes";
 		}
@@ -474,7 +474,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 		}
 	}
@@ -497,7 +497,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_debug_mode_adv = "yes";
 		}
@@ -513,7 +513,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 		}
 	}
@@ -526,14 +526,14 @@ if (!empty($_POST["save"])) {
 		) {
 			if ($_POST["v_filemanager"] == "true") {
 				exec(HESTIA_CMD . "v-add-sys-filemanager", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["FILE_MANAGER"] = "true";
 				}
 			} else {
 				exec(HESTIA_CMD . "v-delete-sys-filemanager", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["FILE_MANAGER"] = "false";
@@ -549,14 +549,14 @@ if (!empty($_POST["save"])) {
 		) {
 			if ($_POST["v_web_terminal"] == "true") {
 				exec(HESTIA_CMD . "v-add-sys-web-terminal", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["WEB_TERMINAL"] = "true";
 				}
 			} else {
 				exec(HESTIA_CMD . "v-delete-sys-web-terminal", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["WEB_TERMINAL"] = "false";
@@ -569,14 +569,14 @@ if (!empty($_POST["save"])) {
 		if (!empty($_POST["v_phpmyadmin_key"])) {
 			if ($_POST["v_phpmyadmin_key"] == "yes" && $_SESSION["PHPMYADMIN_KEY"] == "") {
 				exec(HESTIA_CMD . "v-add-sys-pma-sso quiet", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["PHPMYADMIN_KEY"] != "";
 				}
 			} elseif ($_POST["v_phpmyadmin_key"] == "no" && $_SESSION["PHPMYADMIN_KEY"] != "") {
 				exec(HESTIA_CMD . "v-delete-sys-pma-sso quiet", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["PHPMYADMIN_KEY"] = "";
@@ -590,14 +590,14 @@ if (!empty($_POST["save"])) {
 		if (!empty($_POST["v_quota"]) && $_SESSION["DISK_QUOTA"] != $_POST["v_quota"]) {
 			if ($_POST["v_quota"] == "yes") {
 				exec(HESTIA_CMD . "v-add-sys-quota", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["DISK_QUOTA"] = "yes";
 				}
 			} else {
 				exec(HESTIA_CMD . "v-delete-sys-quota", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["DISK_QUOTA"] = "no";
@@ -614,14 +614,14 @@ if (!empty($_POST["save"])) {
 		) {
 			if ($_POST["v_resources_limit"] == "yes") {
 				exec(HESTIA_CMD . "v-add-sys-cgroups", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["RESOURCES_LIMIT"] = "yes";
 				}
 			} else {
 				exec(HESTIA_CMD . "v-delete-sys-cgroups", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["RESOURCES_LIMIT"] = "no";
@@ -641,14 +641,14 @@ if (!empty($_POST["save"])) {
 		if (!empty($_POST["v_firewall"]) && $v_firewall != $_POST["v_firewall"]) {
 			if ($_POST["v_firewall"] == "yes") {
 				exec(HESTIA_CMD . "v-add-sys-firewall", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["FIREWALL_SYSTEM"] = "iptables";
 				}
 			} else {
 				exec(HESTIA_CMD . "v-delete-sys-firewall", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$_SESSION["FIREWALL_SYSTEM"] = "";
@@ -667,7 +667,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_db_adv = "yes";
 		}
@@ -684,7 +684,7 @@ if (!empty($_POST["save"])) {
 						$output,
 						$return_var,
 					);
-					check_return_code($return_var, $output);
+					//check_return_code($return_var, $output);
 					unset($output);
 					$v_mail_adv = "yes";
 				}
@@ -723,7 +723,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 			}
 		}
@@ -731,7 +731,7 @@ if (!empty($_POST["save"])) {
 			$v_smtp_relay = false;
 			$v_smtp_relay_host = $v_smtp_relay_user = $v_smtp_relay_pass = $v_smtp_relay_port = "";
 			exec(HESTIA_CMD . "v-delete-sys-smtp-relay", $output, $return_var);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 		}
 	}
@@ -744,7 +744,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_db_adv = "yes";
 		}
@@ -761,7 +761,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_db_adv = "yes";
 		}
@@ -791,7 +791,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_upgrade_notification_adv = "yes";
 		}
@@ -820,7 +820,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_upgrade_send_log_adv = "yes";
 		}
@@ -830,7 +830,7 @@ if (!empty($_POST["save"])) {
 	if (empty($_SESSION["error_msg"])) {
 		if ($_POST["v_backup"] == "no" && $v_backup == "yes") {
 			exec(HESTIA_CMD . "v-delete-backup-host local", $output, $return_var);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_backup = "no";
@@ -843,7 +843,7 @@ if (!empty($_POST["save"])) {
 	if (empty($_SESSION["error_msg"])) {
 		if ($_POST["v_backup"] == "yes" && $v_backup != "yes") {
 			exec(HESTIA_CMD . "v-add-backup-host local", $output, $return_var);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_backup = "yes";
@@ -865,7 +865,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_backup_gzip = $_POST["v_backup_gzip"];
@@ -884,7 +884,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_backup_mode = $_POST["v_backup_mode"];
@@ -956,7 +956,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_backup_host = $_POST["v_backup_host"];
@@ -997,7 +997,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_backup_bucket = quoteshellarg($_POST["v_backup_bucket"]);
@@ -1032,7 +1032,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$v_backup_new = "yes";
 			$v_backup_adv = "yes";
@@ -1077,7 +1077,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_backup_host = $_POST["v_backup_host"];
@@ -1116,7 +1116,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				$v_backup_type = quoteshellarg($_POST["v_backup_type"]);
 				if (empty($_SESSION["error_msg"])) {
@@ -1168,7 +1168,7 @@ if (!empty($_POST["save"])) {
 						$output,
 						$return_var,
 					);
-					check_return_code($return_var, $output);
+					//check_return_code($return_var, $output);
 					unset($output);
 					if (empty($_SESSION["error_msg"])) {
 						$v_backup_host = $_POST["v_backup_host"];
@@ -1214,7 +1214,7 @@ if (!empty($_POST["save"])) {
 						$output,
 						$return_var,
 					);
-					check_return_code($return_var, $output);
+					//check_return_code($return_var, $output);
 					unset($output);
 					if (empty($_SESSION["error_msg"])) {
 						$v_backup_bucket = quoteshellarg($_POST["v_backup_bucket"]);
@@ -1242,7 +1242,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_backup_host = "";
@@ -1303,7 +1303,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 
 				$v_repo = $_POST["v_repo"];
@@ -1318,7 +1318,7 @@ if (!empty($_POST["save"])) {
 	if (empty($_SESSION["error_msg"])) {
 		if ($_POST["v_backup_incremental"] !== "yes" && $_SESSION["BACKUP_INCREMENTAL"] === "yes") {
 			exec(HESTIA_CMD . "v-delete-backup-host-restic ", $output, $return);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 
 			$v_repo = "";
@@ -1331,14 +1331,15 @@ if (!empty($_POST["save"])) {
 	}
 	if (empty($_SESSION["error_msg"])) {
 		if (
-			$v_incremental_backups["SNAPSHOTS"] != $_POST["v_snapshots"] ||
-			$v_incremental_backups["KEEP_DAILY"] != $_POST["v_keep_daily"] ||
-			$v_incremental_backups["KEEP_WEEKLY"] != $_POST["v_keep_weekly"] ||
-			$v_incremental_backups["KEEP_MONTHLY"] != $_POST["v_keep_montly"] ||
-			$v_incremental_backups["KEEP_YEARLY"] != $_POST["v_keep_yearly"]
+			($v_incremental_backups["SNAPSHOTS"] != $_POST["v_snapshots"] ||
+				$v_incremental_backups["KEEP_DAILY"] != $_POST["v_keep_daily"] ||
+				$v_incremental_backups["KEEP_WEEKLY"] != $_POST["v_keep_weekly"] ||
+				$v_incremental_backups["KEEP_MONTHLY"] != $_POST["v_keep_montly"] ||
+				$v_incremental_backups["KEEP_YEARLY"] != $_POST["v_keep_yearly"]) &&
+			$_POST["v_backup_incremental"] === "yes"
 		) {
 			exec(HESTIA_CMD . "v-delete-backup-host-restic ", $output, $return);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			$repo = quoteshellarg($_POST["v_repo"]);
 			$snapshots = quoteshellarg($_POST["v_snapshots"]);
@@ -1364,7 +1365,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 
 			$v_repo = $_POST["v_repo"];
@@ -1388,7 +1389,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_inactive_session_timeout = $_POST["v_inactive_session_timeout"];
@@ -1408,7 +1409,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_csrf_strictness = $_POST["v_inactive_session_timeout"];
@@ -1427,7 +1428,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_enforce_subdomain_ownership = $_POST["v_enforce_subdomain_ownership"];
@@ -1446,7 +1447,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_user_edit_details = $_POST["v_policy_user_edit_details"];
@@ -1468,7 +1469,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_user_edit_details = $_POST["v_policy_user_edit_web_templates"];
@@ -1490,7 +1491,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_user_edit_details = $_POST["v_policy_user_edit_dns_templates"];
@@ -1507,7 +1508,7 @@ if (!empty($_POST["save"])) {
 		if (empty($_SESSION["error_msg"])) {
 			if ($_POST["v_api"] == "no" && $_POST["v_api_system"] === 0) {
 				exec(HESTIA_CMD . "v-change-sys-api 'disable'", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 			}
 			if (
@@ -1517,7 +1518,7 @@ if (!empty($_POST["save"])) {
 				$_POST["v_api"] != $_SESSION["API"]
 			) {
 				exec(HESTIA_CMD . "v-change-sys-api 'enable'", $output, $return_var);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 			}
 		}
@@ -1530,7 +1531,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_policy_user_edit_details = $_POST["v_api_system"];
@@ -1551,7 +1552,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_api = $_POST["v_api"];
@@ -1581,7 +1582,7 @@ if (!empty($_POST["save"])) {
 						$output,
 						$return_var,
 					);
-					check_return_code($return_var, $output);
+					//check_return_code($return_var, $output);
 					unset($output);
 					if (empty($_SESSION["error_msg"])) {
 						$v_api_allowed_ip = $_POST["v_api_allowed_ip"];
@@ -1602,7 +1603,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_user_view_logs = $_POST["v_policy_user_view_logs"];
@@ -1621,7 +1622,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_user_delete_logs = $_POST["v_policy_user_delete_logs"];
@@ -1640,7 +1641,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if (empty($_SESSION["error_msg"])) {
 				$v_policy_system_password_reset = $_POST["v_policy_system_password_reset"];
@@ -1663,7 +1664,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_policy_system_protected_admin = $_POST["v_policy_system_protected_admin"];
@@ -1687,7 +1688,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_policy_user_view_suspended = $_POST["v_policy_user_view_suspended"];
@@ -1715,7 +1716,7 @@ if (!empty($_POST["save"])) {
 				$output,
 				$return_var,
 			);
-			check_return_code($return_var, $output);
+			//check_return_code($return_var, $output);
 			unset($output);
 			if ($_POST["v_policy_user_change_theme"]) {
 				unset($_SESSION["userTheme"]);
@@ -1738,7 +1739,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_policy_system_hide_admin = $_POST["v_policy_system_hide_admin"];
@@ -1761,7 +1762,7 @@ if (!empty($_POST["save"])) {
 					$output,
 					$return_var,
 				);
-				check_return_code($return_var, $output);
+				//check_return_code($return_var, $output);
 				unset($output);
 				if (empty($_SESSION["error_msg"])) {
 					$v_policy_system_hide_services = $_POST["v_policy_system_hide_services"];
